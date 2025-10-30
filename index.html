@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="OmniX for Unified Panorama Perception, Generation, and Completion">
+  <meta name="keywords" content="OmniX, Panorama, Flow Matching, Generative Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniX: From Unified Panoramic Generation and Perception to Graphics-Ready 3D Scenes</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="icon" href="assets/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  
+  <!-- bulma css template -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- model viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
+</head>
+
+<body>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          
+          <!-- Title -->
+          <div class="title is-size-1 publication-title">
+            OmniX: From Unified Panoramic Generation and<br>Perception to Graphics-Ready 3D Scenes
+          </div>
+          <div class="title is-size-3 publication-title">
+            <span style="font-weight: bold;">arXiv Preprint 2025</span>
+          </div>
+
+          <!-- Author -->
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <a href="https://yukun-huang.github.io">Yukun Huang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yujiwen.github.io/">Jiwen Yu</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ynzhou.netlify.app">Yanning Zhou</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github.com/wendyjnwang">Jianan Wang</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xinntao.github.io/">Xintao Wang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=P6MraaYAAAAJ">Pengfei Wan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xh-liu.github.io">Xihui Liu</a><sup>1</sup>
+            </span>
+          </div>
+
+          <!-- Institution -->
+          <div class="is-size-4 publication-authors">
+            <span class="author-block"><sup>1 </sup>University of Hong Kong</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>2 </sup>Kuaishou Technology</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>3 </sup>Tencent</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>4 </sup>Astribot</span>
+          </div>
+          
+          <!-- Link Button -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2510.xxxxx" class="external-link button is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv" style="font-size:22px"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              &nbsp;
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/HKU-MMLab/OmniX" class="external-link button is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github" style="font-size:22px"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              &nbsp;
+              <!-- Model Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/KevinHuang/OmniX" class="external-link button is-rounded is-dark">
+                  <span class="icon"><i class="fa fa-database" style="font-size:22px"></i></span>
+                  <span>Model</span>
+                </a>
+              </span>
+              &nbsp;
+              <!-- Data Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/KevinHuang/PanoX" class="external-link button is-rounded is-light">
+                  <span class="icon"><i class="fa fa-database" style="font-size:22px"></i></span>
+                  <span>Dataset (PanoX)</span>
+                </a>
+              </span>
+              &nbsp;
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="" class="external-link button is-rounded is-light">
+                  <span class="icon"><i class="fab fa-youtube" style="font-size:22px"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              &nbsp; -->
+              <!-- Demo Link. -->
+              <!-- <span class="link-block">
+                <a href="" class="external-link button is-rounded is-light">
+                  <span class="icon"><i class="fas fa-gamepad" style="font-size:22px"></i></span>
+                  <span>&nbsp;Demo</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+          
+          <div class="content has-text-justified" style="font-size: 25px; margin-top: 15px;"><b><text style="color: red;">TL;DR:</text></b> We repurpose pre-trained flow matching models for unified panorama generation, perception, and completion.</div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container">
+    <div class="hero-body">
+      <video muted loop autoplay><source src="assets/teaser.mp4" type="video/mp4"></video>
+      <!-- <img width="100%" src="./assets/teaser.png" alt="Teaser image."/> -->
+      <h2 class="subtitle" style="font-size: 22px;">
+We introduce <b>OmniX</b>, a family of flow matching generative models that achieves <b>unified panorama perception, generation, and completion</b>.
+By converting the generated panoramic images and intrinsic properties into 3D meshes and UV maps, we can further create graphics-ready 3D scenes, ready for physically based rendering, relighting, and simualtion.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- News. -->
+<section class="section" style="font-family: 'Google Sans'">
+  <h2 class="title is-2" style="text-align: center;">What's New</h2>
+  <div class="container" style="font-size: 25px;">
+    <div class="content has-text-justified">
+      📢 2025-10-31: Release <a href="https://yukun-huang.github.io/OmniX/">website</a>, <a href="https://arxiv.org/abs/2510.xxxxx">paper</a>, <a href="https://github.com/HKU-MMLab/OmniX">inference code</a>, and <a href="https://huggingface.co/KevinHuang/OmniX">model weights</a>!
+    </div>
+  </div>
+</section>
+
+<!-- Introduction -->
+<section class="section" style="font-family: 'Google Sans'">
+  <h2 class="title is-2" style="text-align: center;">Introduction</h2>
+  <div class="container" style="font-size: 25px;">
+    <div class="content has-text-justified">
+      <p>There are two prevalent ways to constructing 3D scenes: procedural generation and 2D lifting. Among them, panorama-based 2D lifting has emerged as a promising technique, leveraging powerful 2D generative priors to produce immersive, realistic, and diverse 3D environments. In this work, we advance this technique to generate graphics-ready 3D scenes suitable for physically based rendering (PBR), relighting, and simulation.</p>
+      <p>Our key insight is to repurpose 2D generative models for panoramic perception of geometry, textures, and PBR materials. Unlike existing 2D lifting approaches that emphasize appearance generation and ignore the perception of intrinsic properties, we present OmniX, a versatile and unified framework. Based on a lightweight and efficient cross-modal adapter structure, OmniX reuses 2D generative priors for a broad range of panoramic vision tasks, including panoramic perception, generation, and completion. Furthermore, we construct a large-scale synthetic panorama dataset containing high-quality multimodal panoramas from diverse indoor and outdoor scenes. Extensive experiments demonstrate the effectiveness of our model in panoramic visual perception and graphics-ready 3D scene generation, opening new possibilities for immersive and physically realistic virtual world generation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section" style="font-family: 'Google Sans'">
+  <h2 class="title is-2" style="text-align: center;">Method Design</h2>
+  <div class="container" style="font-size: 25px;">
+    <div class="content has-text-justified">
+      <p>The flexible Diffusion Transformer (DiT) architecture enables various adapter designs for injecting multiple 2D condition inputs. We empirically validate the superiority of the Separate-Adapter design in visual perception tasks.</p>
+      <div class="item"><img src="assets/adapter.png" width="100%"></div>
+      <p>Built upon the pre-trained flow matching model Flux.1-dev and equipped with flexible, modality-specific adapters, OmniX is capable of handling a broad spectrum of panorama generation, perception, and completion tasks.</p>
+      <div class="item"><img src="assets/framework.png" width="100%"></div>
+      <p>The generated panoramic images, along with the predicted geometric and intrinsic properties (distance, normal, albedo, roughness, and metallic), can be unprojected into graphics-ready 3D scene assets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Panorama Generation -->
+<section class="section" style="font-family: 'Google Sans'">
+  <h2 class="title is-2" style="text-align: center;">Results: Panorama Generation</h2>
+  
+  <div class="container" style="font-size: 25px;">
+    <p>Given single-view input images (and optional text prompts) as inputs, OmniX can generate high-quality panoramas:</p>
+    <div class="carousel results-carousel">
+      <div class="item"><img src="assets/pano_gen/pano_gen_1.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_gen/pano_gen_2.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_gen/pano_gen_3.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_gen/pano_gen_4.png" width="100%"></div>
+    </div>
+
+    <p>The generated panoramas are projected into perspective videos with different camera trajectories for visualization:</p>
+    <div class="carousel results-carousel">
+      <div class="item"><video muted loop autoplay controls><source src="assets/pano_gen_video/pano_gen_1.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop autoplay controls><source src="assets/pano_gen_video/pano_gen_2.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop autoplay controls><source src="assets/pano_gen_video/pano_gen_3.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_gen_video/pano_gen_4.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_gen_video/pano_gen_5.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_gen_video/pano_gen_6.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_gen_video/pano_gen_7.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- Panorama Perception -->
+<section class="section" style="font-family: 'Google Sans'">
+  <h2 class="title is-2" style="text-align: center;">Results: Panorama Perception</h2>
+  
+  <div class="container" style="font-size: 25px;">
+    <p>Given RGB panoramas as inputs, OmniX can predict their intrinsic properties, including: distances, normals, albedos, and PBR materials (roughness and metallic). The following shows the prediction results for zero-shot panoramic images:</p>
+    <div class="carousel results-carousel">
+      <div class="item"><img src="assets/pano_perc/pano_perc_1.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_2.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_3.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_4.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_5.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_6.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_7.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_8.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_9.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_perc/pano_perc_10.png" width="100%"></div>
+    </div>
+
+    <p>The predicted properties are projected into perspective videos with different camera trajectories for visualization:</p>
+    <div class="carousel results-carousel">
+      <div class="item"><video muted loop autoplay controls><source src="assets/pano_perc_video/pano_perc_1.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop autoplay controls><source src="assets/pano_perc_video/pano_perc_2.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop autoplay controls><source src="assets/pano_perc_video/pano_perc_3.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_perc_video/pano_perc_4.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_perc_video/pano_perc_5.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_perc_video/pano_perc_6.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_perc_video/pano_perc_7.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_perc_video/pano_perc_8.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop controls><source src="assets/pano_perc_video/pano_perc_9.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- Panorama Completion and Guided Perception -->
+<section class="section" style="font-family: 'Google Sans'">
+  <h2 class="title is-2" style="text-align: center;">Results: Panorama Completion and Guided Perception</h2>
+  
+  <div class="container" style="font-size: 25px;">
+    <p>Given masked RGB panoramas and binary masks as inputs, OmniX can fill in the missing regions as shown below:</p>
+    <img src="assets/pano_comp/pano_comp_1.png" width="100%" style="margin-top: 15px;">
+    <p>Similarly, given masked X panoramas (X could be distance, normal, albedo, roughness, or metallic), RGB panoramas, and binary masks as inputs, OmniX can fill in the missing regions as shown below:</p>
+    <div class="carousel results-carousel">
+      <div class="item"><img src="assets/pano_comp/pano_comp_2.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_comp/pano_comp_3.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_comp/pano_comp_4.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_comp/pano_comp_5.png" width="100%"></div>
+      <div class="item"><img src="assets/pano_comp/pano_comp_6.png" width="100%"></div>
+    </div>
+    <p>Panorama completion and guided perception are necessary for progressive 3D scene generation.</p>
+  </div>
+</section>
+
+<!-- Graphics-Ready 3D Scene Construction -->
+<section class="section" style="font-family: 'Google Sans'">
+  <h2 class="title is-2" style="text-align: center;">Results: Graphics-Ready 3D Scene Reconstruction / Generation</h2>
+  
+  <div class="container" style="font-size: 25px;">
+    <p>Geometric and intrinsic properties of a panorama can be unprojected to produce textured 3D meshes. The produced 3D scene assets are compatible with modern 3D workflows (e.g., Blender), ready for free exploration, PBR-based relighting, and physical simulation as shown below:</p>
+    <div class="carousel results-carousel">
+      <div class="item"><video muted loop autoplay controls><source src="assets/blender/scene_demo_1.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop autoplay controls><source src="assets/blender/scene_demo_2.mp4" type="video/mp4"></video></div>
+      <div class="item"><video muted loop autoplay controls><source src="assets/blender/scene_demo_3.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section pt-0" style="font-family: 'Google Sans'">
+<div class="container">
+<h2 class="title is-3">BibTeX</h2>
+<pre>
+<code style="font-size: 18px;">@article{omnix,
+  title={{OmniX: From Unified Panoramic Generation and Perception to Graphics-Ready 3D Scenes}},
+  author={Huang, Yukun and Yu, Jiwen and Zhou, Yanning and Wang, Jianan and Wang, Xintao and Wan, Pengfei and Liu, Xihui},
+  year={2025},
+  eprint={arXiv preprint arXiv:xxxx.xxxxx},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+}
+</code>
+</pre>
+</div>
+</section>
+
+</body>
+
+<!-- Template -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content" style="font-size: 18px;">
+          <p>This website is constructed using the template provided by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>
